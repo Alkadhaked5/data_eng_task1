@@ -65,11 +65,11 @@ Nested/array fields include:
 - `meta` → nested object containing createdAt, updatedAt, barcode and qrCode
 - `images` → array
 
-## 5. Project Structure
+ ## 5. Project Structure
 
+```text
 data-engineering-intern-assignment/
 ├── README.md
-├── config/
 ├── data/
 │   ├── raw/
 │   │   └── products.json
@@ -88,7 +88,9 @@ data-engineering-intern-assignment/
     ├── raw_to_silver.py
     ├── data_quality.py
     └── silver_to_gold.py
-    ## Gold Layer
+```
+
+  ## 6.Gold Layer
 
 The Gold layer contains analytical KPI tables created from the Silver layer using PySpark.
 
@@ -140,7 +142,7 @@ The KPI requirements provided for the assignment were implemented as follows:
       - 10% Price Score
     - Components were normalized to a common 0–1 scale.
 
-### Gold Tables
+### 7.Gold Tables
 
 The following Gold Parquet tables were created:
 
@@ -153,7 +155,7 @@ The following Gold Parquet tables were created:
 
 All Gold tables were validated by reading the generated Parquet files and checking their record counts.
 
-## 6. Data Exploration
+## 8. Data Exploration
 
 Initial dataset exploration was performed using Pandas in:
 
@@ -178,7 +180,7 @@ The exploration included:
 
 The dataset contains nested structures such as `reviews`, `dimensions`, `meta`, `tags`, and `images`.
 
-## 7. Silver Layer
+## 9. Silver Layer
 
 The Silver layer transformation is implemented in:
 
@@ -202,7 +204,7 @@ Silver data is stored at:
 
 `data/silver/products/`
 
-## 8. Data Quality
+## 10. Data Quality
 
 Data quality checks were performed on the Silver layer using PySpark.
 
@@ -221,7 +223,7 @@ The checks included:
 - Return policy validation
 - Availability and stock consistency validation
 
-### Data Quality Results
+### 11.Data Quality Results
 
 | Check | Issue Count |
 |---|---:|
@@ -250,50 +252,49 @@ The detailed data quality report is available at:
 
 `docs/data_quality_report.md`
 
-## 9. How to Run
+## 12. How to Run
 
 ### Step 1: Create Virtual Environment
 
 ```bash
 python -m venv .venv
+```
 
 ### Step 2: Activate Virtual Environment
 
-Windows PowerShell:
+Windows:
 
-```powershell
-.venv\Scripts\Activate.ps1
+```bash
+.venv\Scripts\activate
+```
 
 ### Step 3: Install Dependencies
 
 ```bash
-pip install pyspark==3.5.7
-pip install pandas
-pip install requests
+pip install -r requirements.txt
+```
 
-### Step 4: Run Data Exploration
-
-Open the following notebook in VS Code/Jupyter:
-
-```text
-src/explore_data.ipynb
-
-### Step 5: Run Raw to Silver Pipeline
+### Step 4: Run Raw to Silver Pipeline
 
 ```bash
 python src/raw_to_silver.py
+```
 
-### Step 6: Run Data Quality Checks
+### Step 5: Run Data Quality Checks
 
 ```bash
 python src/data_quality.py
+```
 
-### Step 7: Run Silver to Gold Pipeline
+### Step 6: Run Silver to Gold Pipeline
 
 ```bash
 python src/silver_to_gold.py
+```
 
-## 10. Technologies Used
+The processed Silver and Gold datasets are written as Parquet files.
+
+## 13. Technologies Used
 
 - Python 3.11
 - Apache Spark
@@ -305,7 +306,7 @@ python src/silver_to_gold.py
 - Jupyter Notebook
 - VS Code
 
-## 11. Final Pipeline Status
+## 14. Final Pipeline Status
 
 | Pipeline Stage | Status |
 |---|---|
@@ -317,7 +318,7 @@ python src/silver_to_gold.py
 | Gold Parquet Output | ✅ Complete |
 | Final Gold Validation | ✅ Complete |
 
-### Final Gold Validation
+### 15.Final Gold Validation
 
 ```text
 Gold Product KPI: 194

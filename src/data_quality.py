@@ -16,6 +16,21 @@ spark = (
 silver_path = "data/silver/products"
 
 df_silver = spark.read.parquet(silver_path)
+# Register Silver DataFrame as a temporary SQL view
+df_silver.createOrReplaceTempView("silver_products")
+
+# Spark SQL validation
+df_sql_check = spark.sql("""
+    SELECT
+        COUNT(*) AS total_records,
+        COUNT(DISTINCT id) AS distinct_product_ids,
+        SUM(CASE WHEN price <= 0 THEN 1 ELSE 0 END) AS invalid_price_count,
+        SUM(CASE WHEN rating < 0 OR rating > 5 THEN 1 ELSE 0 END) AS invalid_rating_count
+    FROM silver_products
+""")
+
+print("Spark SQL Validation:")
+df_sql_check.show()
 
 print("Silver Data Count:", df_silver.count())
 

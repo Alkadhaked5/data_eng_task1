@@ -222,7 +222,7 @@ The checks included:
 - Availability status validation
 - Return policy validation
 - Availability and stock consistency validation
-
+Spark SQL validation was also performed on the Silver dataset to validate total records, distinct product IDs, and invalid price and rating values.
 ### 11. Data Quality Results
 
 | Check | Issue Count |

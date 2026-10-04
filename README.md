@@ -90,7 +90,7 @@ data-engineering-intern-assignment/
     └── silver_to_gold.py
 ```
 
-  ## 6.Gold Layer
+  ## 6. Gold Layer
 
 The Gold layer contains analytical KPI tables created from the Silver layer using PySpark.
 
@@ -142,7 +142,7 @@ The KPI requirements provided for the assignment were implemented as follows:
       - 10% Price Score
     - Components were normalized to a common 0–1 scale.
 
-### 7.Gold Tables
+### 7. Gold Tables
 
 The following Gold Parquet tables were created:
 
@@ -223,7 +223,7 @@ The checks included:
 - Return policy validation
 - Availability and stock consistency validation
 
-### 11.Data Quality Results
+### 11. Data Quality Results
 
 | Check | Issue Count |
 |---|---:|
@@ -318,7 +318,7 @@ The processed Silver and Gold datasets are written as Parquet files.
 | Gold Parquet Output | ✅ Complete |
 | Final Gold Validation | ✅ Complete |
 
-### 15.Final Gold Validation
+### 15. Final Gold Validation
 
 ```text
 Gold Product KPI: 194
